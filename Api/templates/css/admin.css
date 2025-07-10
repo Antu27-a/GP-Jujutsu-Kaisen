@@ -132,7 +132,7 @@ body {
 }
 
 .tab-button {
-    border: 2px solid var(--var-claro);
+    border: 2px solid var(--var-azul-oscuro);
     padding: 16px;
     background-color: var(--var-azul-oscuro);
     margin-right: 0.5rem;
