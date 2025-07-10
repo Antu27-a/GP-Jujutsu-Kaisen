@@ -1,11 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>gggggggg</h1>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon"><img src="Suguro Geto.jpeg" alt=""></div>
+                <div class="logo-text">Jujutsu kaisen</div>
+            </a>
+
+            <!-- Navegación Desktop -->
+            <nav class="nav-desktop">
+                <a href="#" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt="">Catálogo</a>
+                <a href="#" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt=""> Agregar Producto</a>
+                <a href="#" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt=""> Mi Perfil </a>
+                <a href="#" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt="">Iniciar sesion </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido de ejemplo -->
+    <main>
+        <div class="presentacion">
+            <h1><span class="resaltar">Juntos</span> hacemos <span class="resaltar">----- </span>los <span
+                    class="resaltar">objetos </span>----</h1>
+            <h3>B A N N E R S.</h3>
+            <input type="button" value="Explorar" class="btn-presentacion">
+        </div>
+
+        <section class="productos-seccion">
+            <h1 class="titulo-seccion">NUESTROS PRODUCTOS</h1>
+            <div class="grid-productos">
+                <div class="tarjeta-producto">
+                    <div class="imagen-producto">
+                        <img src="img/Suguro Geto.jpeg" alt="Suguro Geto">
+                    </div>
+                    <div class="contenido-producto">
+                        <h2 class="nombre-producto">Suguro Geto</h2>
+                        <p class="precio-producto">Precio: $999</p>
+                        <p class="stock-producto">Stock disponible: 8 unidades</p>
+                        <p class="descripcion-producto">
+                            Figura de colección de Suguro Geto. Alta calidad, detalles precisos e ideal para fanáticos
+                            de Jujutsu Kaisen.
+                        </p>
+                        <a href="#modal-1" class="btn-ver-mas">VER MÁS</a>
+                    </div>
+                </div>
+
+
+
+                <div class="tarjeta-producto">
+                    <div class="imagen-producto">
+                        <img src="/placeholder.svg?height=300&width=250" alt="Satoru Gojo">
+                    </div>
+                    <div class="contenido-producto">
+                        <h2 class="nombre-producto">Satoru Gojo</h2>
+                        <p class="precio-producto">Precio: $1299</p>
+                        <p class="stock-producto">Stock disponible: 5 unidades</p>
+                        <p class="descripcion-producto">
+                            Figura premium de Satoru Gojo con efectos especiales. Edición limitada con base
+                            iluminada y detalles únicos.
+                        </p>
+                        <a href="#modal-3" class="btn-ver-mas">VER MÁS</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Modales -->
+        <div id="modal-1" class="modal-overlay">
+            <div class="modal-contenido">
+                <a href="" class="modal-cerrar">&times;</a>
+                <div class="modal-horizontal">
+                    <div class="modal-imagen">
+                        <img src="/placeholder.svg?height=400&width=350" alt="Suguro Geto">
+                    </div>
+                    <div class="modal-info">
+                        <h2>Suguro Geto</h2>
+                        <p class="modal-precio">$999</p>
+                        <p class="modal-stock">Stock: 8 unidades disponibles</p>
+                        <div class="modal-descripcion">
+                            <h3>Descripción detallada:</h3>
+                            <p>Figura de colección de alta calidad de Suguro Geto, uno de los personajes más complejos
+                                de Jujutsu Kaisen. Esta figura captura perfectamente su presencia imponente y sus
+                                detalles característicos.</p>
+                            <ul>
+                                <li>Material: PVC de alta calidad</li>
+                                <li>Altura: 25cm aproximadamente</li>
+                                <li>Incluye base decorativa</li>
+                                <li>Edición limitada</li>
+                                <li>Empaque premium con certificado de autenticidad</li>
+                            </ul>
+                        </div>
+                        <div class="modal-acciones">
+                            <button class="btn-comprar">COMPRAR AHORA</button>
+                            <button class="btn-carrito">AGREGAR AL CARRITO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-2" class="modal-overlay">
+            <div class="modal-contenido">
+                <a href="" class="modal-cerrar">&times;</a>
+                <div class="modal-horizontal">
+                    <div class="modal-imagen">
+                        <img src="img/Suguro Geto.jpeg" alt="Suguro Geto">
+                    </div>
+                    <div class="modal-info">
+                        <h2>Suguro Geto</h2>
+                        <p class="modal-precio">$999</p>
+                        <p class="modal-stock">Stock: 8 unidades disponibles</p>
+                        <div class="modal-descripcion">
+                            <h3>Descripción detallada:</h3>
+                            <p>Figura de colección de alta calidad de Suguro Geto, uno de los personajes más complejos
+                                de Jujutsu Kaisen. Esta figura captura perfectamente su presencia imponente y sus
+                                detalles característicos.</p>
+                            <ul>
+                                <li>Material: PVC de alta calidad</li>
+                                <li>Altura: 25cm aproximadamente</li>
+                                <li>Incluye base decorativa</li>
+                                <li>Edición limitada</li>
+                                <li>Empaque premium con certificado de autenticidad</li>
+                            </ul>
+                        </div>
+                        <div class="modal-acciones">
+                            <button class="btn-comprar">COMPRAR AHORA</button>
+                            <button class="btn-carrito">AGREGAR AL CARRITO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 </body>
+
 </html>
