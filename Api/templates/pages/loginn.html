@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jujutsu Kaisen - Iniciar Sesión</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/inicio.js"></script>
+</head>
+
+<body>
+    <section class="contenedor-principal">
+        <div class="tarjeta-login">
+            <div class="encabezado-logo">
+                <div class="logo-jujutsu"><img src="../img/Suguro Geto.jpeg" alt=""></div>
+                <h1 class="titulo-principal">Jujutsu Kaisen</h1>
+                <p class="subtitulo">Accede a tu cuenta de hechicero</p>
+            </div>
+
+            <div class="pestanas-formulario">
+                <div class="pestana activa" onclick="cambiarPestana('login')">Iniciar Sesión</div>
+                <div class="pestana" onclick="cambiarPestana('registro')">Crear Cuenta</div>
+            </div>
+
+            <!-- Formulario de Login -->
+            <form class="formulario activo" id="formularioLogin">
+                <div class="grupo-campo">
+                    <label class="etiqueta-campo" for="emailLogin">Email o Usuario</label>
+                    <input type="text" id="emailLogin" class="campo-entrada" placeholder="Ingresa tu email o usuario">
+                </div>
+
+                <div class="grupo-campo">
+                    <label class="etiqueta-campo" for="passwordLogin">Contraseña</label>
+                    <input type="password" id="passwordLogin" class="campo-entrada" placeholder="Ingrese su contraseña">
+                    <img src="ojo-abierto.png" class="icono-campo" onclick="alternarPassword('passwordLogin', this)"
+                        alt="Ver contraseña">
+                </div>
+
+                <div class="opciones-extra">
+                    <div class="checkbox-recordar">
+                        <input type="checkbox" id="recordarme">
+                        <label for="recordarme">Recordarme</label>
+                    </div>
+                    <a href="#" class="enlace-olvido">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button type="submit" class="boton-principal">Iniciar Sesión</button>
+            </form>
+
+            <!-- Formulario de Registro -->
+            <form class="formulario" id="formularioRegistro">
+                <div class="grupo-campo">
+                    <label class="etiqueta-campo" for="usuarioRegistro">Usuario</label>
+                    <input type="text" id="usuarioRegistro" class="campo-entrada"
+                        placeholder="Elige un nombre de usuario">
+                </div>
+
+                <div class="grupo-campo">
+                    <label class="etiqueta-campo" for="emailRegistro">Email</label>
+                    <input type="email" id="emailRegistro" class="campo-entrada" placeholder="Ingresa tu email">
+                </div>
+
+                <div class="grupo-campo">
+                    <label class="etiqueta-campo" for="passwordRegistro">Contraseña</label>
+                    <input type="password" id="passwordRegistro" class="campo-entrada"
+                        placeholder="Crea una contraseña">
+                    <img src="ojo-abierto.png" class="icono-campo" onclick="alternarPassword('passwordRegistro', this)"
+                        alt="Ver contraseña">
+                </div>
+
+                <div class="grupo-campo">
+                    <label class="etiqueta-campo" for="confirmarPassword">Confirmar Contraseña</label>
+                    <input type="password" id="confirmarPassword" class="campo-entrada"
+                        placeholder="Confirma tu contraseña">
+                    <img src="ojo-abierto.png" class="icono-campo" onclick="alternarPassword('confirmarPassword', this)"
+                        alt="Ver contraseña">
+                </div>
+
+                <button type="submit" class="boton-principal">Crear Cuenta</button>
+            </form>
+        </div>
+    </section>
+
+
+
+</body>
+
+</html>

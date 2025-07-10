@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+
+    <!-- CONTENIDO -->
+    <main class="container">
+        <!-- ENCABEZADO -->
+        <div class="admin-header">
+            <h1>Panel de Administración</h1>
+            <a href="agregar-producto.html" class="btn btn-primary">+ Agregar Producto</a>
+        </div>
+
+        <!-- TABS -->
+        <div class="admin-tabs">
+            <button class="tab-button active" data-tab="productos" onclick="mostrarTab('productos')">Productos</button>
+            <button class="tab-button" data-tab="usuarios" onclick="mostrarTab('usuarios')">Usuarios</button>
+        </div>
+
+        <!-- TAB PRODUCTOS -->
+        <div class="tab-content active" id="productos">
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td><img src="../img/Suguro Geto.jpeg" alt="Producto" class="table-image"></td>
+                            <td>fugura de suguru</td>
+                            <td>$1,299.99</td>
+                            <td>15</td>
+                            <td class="estado"><span class="status-badge status-active">Activo</span></td>
+                            <td class="actions">
+                                <a href="editar-producto.html" class="btn btn-sm btn-secondary">Editar</a>
+                                <button class="btn btn-sm btn-danger" onclick="confirmarEliminacion()">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td><img src="../img/Suguro Geto.jpeg" alt="Producto" class="table-image"></td>
+                            <td>funda de oso</td>
+                            <td>$29.99</td>
+                            <td>3</td>
+                            <td class="estado"><span class="status-badge status-warning">Stock Bajo</span></td>
+                            <td class="actions">
+                                <a href="editar-producto.html" class="btn btn-sm btn-secondary">Editar</a>
+                                <button class="btn btn-sm btn-danger" onclick="confirmarEliminacion()">Eliminar</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB USUARIOS -->
+        <div class="tab-content" id="usuarios">
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>Juan Pérez</td>
+                            <td>juan@email.com</td>
+                            <td>Administrador</td>
+                            <td class="estado"><span class="status-badge status-active">Activo</span></td>
+                            <td class="actions">
+                                <button class="btn btn-sm btn-secondary">Editar</button>
+                                <button class="btn btn-sm btn-danger"
+                                    onclick="abrirModalDesactivacion()">Desactivar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>María García</td>
+                            <td>maria@email.com</td>
+                            <td>Usuario</td>
+                            <td class="estado"><span class="status-badge status-active">Activo</span></td>
+                            <td class="actions">
+                                <button class="btn btn-sm btn-secondary">Editar</button>
+                                <button class="btn btn-sm btn-danger">Desactivar</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL -->
+    <div class="modal" id="deleteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirmar Eliminación</h3>
+                <span class="close" onclick="cerrarModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas eliminar este producto?</p>
+                <p><strong>Esta acción no se puede deshacer.</strong></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="cerrarModal()">Cancelar</button>
+                <button class="btn btn-danger" onclick="eliminarProducto()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal" id="desactivarCuentaModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirmar Desactivación</h3>
+                <span class="close" onclick="cerrarModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas desactivar tu cuenta?</p>
+                <p><strong>Podrás reactivarla iniciando sesión nuevamente.</strong></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="cerrarModal()">Cancelar</button>
+                <button class="btn btn-danger" onclick="desactivarCuenta()">Desactivar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JS -->
+
+    <script>
+
+
+        function abrirModalDesactivacion() {
+            const modal = document.getElementById('desactivarCuentaModal');
+            modal.style.display = 'flex';
+        }
+
+
+        function confirmarEliminacion() {
+            document.getElementById('deleteModal').style.display = 'flex';
+        }
+
+
+        function cerrarModal() {
+            const modales = document.querySelectorAll('.modal');
+            modales.forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+
+
+        function eliminarProducto() {
+            alert("Producto eliminado");
+            cerrarModal();
+        }
+
+        function mostrarTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-button');
+
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>perfil-usuario</title>
+    <link rel="stylesheet" href="../css/perfil-usuario.css">
+</head>
+
+<body class="cuerpo">
+    <div class="contenedor">
+        <div class="encabezado">
+            <h1 class="titulo-principal">Perfil de Usuario</h1>
+            <div class="insignia-rango" id="insigniaRango">Administrador</div>
+        </div>
+
+        <form class="modo-vista">
+            <div class="contenedor-tarjetas">
+                <!-- Tarjeta de Perfil Principal -->
+                <div class="tarjeta tarjeta-perfil">
+                    <div class="contenedor-avatar">
+                        <img src="../img/Suguro Geto.jpeg" alt="Avatar" class="avatar" id="imagenAvatar">
+
+                        <button type="button" class="boton-subir-avatar">
+                            <span>+</span>
+                        </button>
+                        <!-- img -->
+                        <input type="file" accept="image/*" style="display: none;">
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label class="etiqueta-campo" for="nombreUsuario">Nombre de Usuario</label>
+                        <div class="mostrar-datos" >yuji_itadori</div>
+                        <input type="text"  class="entrada-datos" placeholder="yuji_itadori"
+                            value="yuji_itadori"  required>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label class="etiqueta-campo" for="email">Correo Electrónico</label>
+                        <div class="mostrar-datos" >yuji@jujutsu-tech.edu</div>
+                        <input type="email"class="entrada-datos" placeholder="yuji@jujutsu-tech.edu"
+                            value="yuji@jujutsu-tech.edu" required>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label class="etiqueta-campo" for="rol">Rol del Usuario</label>
+                        <div class="mostrar-rol" >Administrador</div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Datos Adicionales -->
+                <div class="tarjeta">
+                    <div class="grilla-campos">
+                        <div class="grupo-campo">
+                            <label class="etiqueta-campo" for="nombreCompleto">Nombre Completo</label>
+                            <div class="mostrar-datos" >Yuji Itadori</div>
+                            <input type="text" id="nombreCompleto" class="entrada-datos" placeholder="Yuji Itadori"
+                                value="Yuji Itadori" required>
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label class="etiqueta-campo" for="apodo">Apodo</label>
+                            <div class="mostrar-datos vacio">No especificado</div>
+                            <input type="text" class="entrada-datos" placeholder="El Recipiente" value="">
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label class="etiqueta-campo" for="telefono">Número de Teléfono</label>
+                            <div class="mostrar-datos" >+54 11 1234-5678</div>
+                            <input type="tel"  class="entrada-datos" placeholder="+54 11 1234-5678"
+                                value="+54 11 1234-5678" required>
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label class="etiqueta-campo" for="contraseña">Contraseña</label>
+                            <div class="mostrar-datos">••••••••</div>
+                            <div class="contenedor-contraseña">
+                                <input type="password" id="contraseña" class="entrada-datos"
+                                    placeholder="Nueva contraseña">
+                                <button type="button" class="boton-mostrar-contraseña" >
+                                    <span>-</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="grupo-campo ancho-completo">
+                            <label class="etiqueta-campo" for="biografia">Biografía</label>
+                            <div class="mostrar-datos" id="mostrarBiografia">Estudiante de primer año en el Instituto
+                                Técnico de Hechicería de Tokio. Recipiente de Sukuna, el Rey de las Maldiciones.
+                                Especializado en combate cuerpo a cuerpo y técnicas de energía maldita.</div>
+                            <textarea id="biografia" class="entrada-datos area-texto"
+                                placeholder="Cuéntanos sobre ti..."
+                                rows="4">Estudiante de primer año en el Instituto Técnico de Hechicería de Tokio. Recipiente de Sukuna, el Rey de las Maldiciones. Especializado en combate cuerpo a cuerpo y técnicas de energía maldita.</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grupo-botones">
+                <button type="button" class="boton boton-editar">Modificar Datos</button>
+                <button type="submit" class="boton boton-principal" id="botonGuardar" >Guardar
+                    Cambios</button>
+                <button type="button" class="boton boton-secundario">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
