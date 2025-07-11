@@ -1,0 +1,460 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Arial", sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+:root {
+    --var-fondo: #fafafa;
+    --var-azul-oscuro: #0a0f1a;
+    --var-azul-medio: #111f3d;
+    --var-azul-: #1e2f7a;
+    --var-claro: #667eea;
+
+}
+
+/* Sección de productos */
+.productos-seccion {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 30px;
+    text-align: center;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--var-azul-oscuro);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.titulo-seccion::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(45deg, var(--var-azul-), var(--var-claro));
+    border-radius: 2px;
+}
+
+/* Grid de productos */
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Tarjetas de producto */
+.tarjeta-producto {
+    background: var(--var-fondo);
+    border-radius: 15px;
+    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.164);
+    overflow: hidden;
+    transition: all 0.5s ease;
+    position: relative;
+    border: 3px solid var(--var-claro);
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(40px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.imagen-producto {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+    background-color: #e6e6f2;
+}
+
+.imagen-producto img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-producto:hover .imagen-producto img {
+    transform: scale(1.05);
+}
+
+.contenido-producto {
+    padding: 25px;
+}
+
+.nombre-producto {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--var-azul-oscuro);
+}
+
+.precio-producto {
+    font-size: 18px;
+    font-weight: bold;
+    color: #db6053;
+    margin-bottom: 5px;
+}
+
+.stock-producto {
+    font-size: 17px;
+    color: #27ae60;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.descripcion-producto {
+    color: #000000;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.btn-ver-mas {
+    display: inline-block;
+    border: 2px solid #000000;
+    background: linear-gradient(45deg, var(--var-azul-), var(--var-claro));
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 16px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+.btn-ver-mas:hover {
+    background: var(--var-azul-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--var-claro);
+    border: 2px solid var(--var-azul-oscuro);
+}
+
+/* Estilos del Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0f1ac3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-contenido {
+    background: var(--var-fondo);
+    border-radius: 15px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay:target .modal-contenido {
+    transform: scale(1);
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: #000000;
+    text-decoration: none;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.modal-cerrar:hover {
+    background: #000000;
+    color: #f5f5f5;
+}
+
+.modal-horizontal {
+    display: flex;
+    min-height: 500px;
+}
+
+.modal-imagen {
+    flex: 1;
+    min-width: 350px;
+}
+
+.modal-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* object-fit: cover; */
+    border-radius: 15px 0 0 15px;
+    background-color: #5de974;
+}
+
+.modal-info {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modal-info h2 {
+    font-size: 2rem;
+    color: var(--var-azul-);
+    margin-bottom: 15px;
+}
+
+.modal-precio {
+    font-size: 25px;
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.modal-stock {
+    font-size: 1rem;
+    color: #27ae60;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.modal-descripcion {
+    flex-grow: 1;
+    margin-bottom: 30px;
+}
+
+.modal-descripcion h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.modal-descripcion p {
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.modal-descripcion ul {
+    list-style: none;
+}
+
+.modal-descripcion li {
+    color: #4e4e4e;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.modal-descripcion li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.modal-acciones {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-comprar,
+.btn-carrito {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.btn-comprar {
+    /* background: linear-gradient(45deg, #e74c3c, #c0392b); */
+    background-color: var(--var-claro);
+    border: 2px solid var(--var-azul-medio);
+    color: white;
+}
+
+.btn-comprar:hover {
+    /* background: linear-gradient(45deg, #c0392b, #a93226); */
+    border: 2px solid var(--var-claro);
+    background-color: var(--var-azul-);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 60, 231, 0.4);
+}
+
+.btn-carrito {
+    /* background: linear-gradient(45deg, #27ae60, #229954); */
+    background-color: var(--var-azul-medio);
+    border: 2px solid var(--var-claro);
+    color: white;
+}
+
+.btn-carrito:hover {
+    /* background: linear-gradient(45deg, #229954, #1e8449); */
+    background-color: var(--var-azul-);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(39, 154, 174, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-productos {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .titulo-seccion {
+        font-size: 2rem;
+    }
+
+    .modal-horizontal {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .modal-imagen {
+        min-width: auto;
+        height: 300px;
+    }
+
+    .modal-imagen img {
+        border-radius: 15px 15px 0 0;
+    }
+
+    .modal-info {
+        padding: 25px;
+    }
+
+    .modal-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .modal-precio {
+        font-size: 1.4rem;
+    }
+
+    .modal-acciones {
+        flex-direction: column;
+    }
+
+    .btn-comprar,
+    .btn-carrito {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .productos-seccion {
+        padding: 20px 15px;
+    }
+
+    .tarjeta-producto {
+        margin: 0 10px;
+    }
+
+    .modal-contenido {
+        width: 95%;
+        margin: 20px;
+    }
+
+    .modal-info {
+        padding: 20px;
+    }
+}
+
+/* Animaciones adicionales */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tarjeta-producto {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.tarjeta-producto:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.tarjeta-producto:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.tarjeta-producto:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.tarjeta-producto:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ocultar scrollbar en modal pero mantener funcionalidad */
+.modal-contenido::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-contenido::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.modal-contenido::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.modal-contenido::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

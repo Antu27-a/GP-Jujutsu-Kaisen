@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --var-fondo: #fafafa;
+    --var-azul-oscuro: #0a0f1a;
+    --var-azul-medio: #111f3d;
+    --var-azul-: #1e2f7a;
+    --var-claro: #667eea;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fafafa;
+}
+
+.contenedor-principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+
+}
+
+.tarjeta-login {
+    background-color: var(--var-azul-medio);
+    width: 100%;
+    max-width: 480px;
+    min-height: 550px;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 2px 20px 40px var(--var-claro);
+
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #F2F0E2;
+}
+
+.encabezado-logo {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.logo-jujutsu img {
+    background-color: #667eea;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: pulsarLogo 3s ease-in-out infinite;
+}
+
+
+@keyframes pulsarLogo {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+
+.titulo-principal {
+    color: var(--var-claro);
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.975);
+}
+
+.subtitulo {
+    color: var(--var-fondo);
+    font-size: 18px;
+}
+
+.pestanas-formulario {
+    display: flex;
+    margin-bottom: 25px;
+    background: #0a0f1acc;
+    color: #fafafa;
+    border-radius: 12px;
+    padding: 4px;
+    border: 1px solid #eff2ff;
+}
+
+.pestana {
+    flex: 1;
+    padding: 12px;
+    text-align: center;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: var(--var-fondo);
+}
+
+.pestana.activa {
+    background: var(--var-azul-);
+    box-shadow:
+        0 4px 15px #667eea,
+        0 0 10px var(--var-fondo);
+    transform: translateY(-3px);
+    transition: .4s;
+}
+
+.pestana:hover:not(.activa) {
+    background: #667eea5c;
+    color: #000000;
+}
+
+.formulario {
+    display: none;
+}
+
+.formulario.activo {
+    display: block;
+}
+
+.grupo-campo {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.etiqueta-campo {
+    display: block;
+    margin-bottom: 8px;
+    color: #fafafa;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.campo-entrada {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid var(--var-claro);
+    border-radius: 12px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+    background: #f6f5ea;
+}
+
+.campo-entrada::placeholder {
+    color: #000000;
+    opacity: 0.7;
+}
+
+.campo-entrada:hover {
+    outline: none;
+    box-shadow:
+        0 0 0 1px rgb(108, 165, 215),
+        0 0 20px #2d6cf4;
+    transform: translateY(-2px);
+    background: rgba(10, 15, 30, 0.9);
+    border: 2px solid #415F78;
+    color: #F2F0E2;
+}
+
+.icono-campo {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.icono-campo:hover {
+    opacity: 1;
+}
+
+.opciones-extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 17px;
+}
+
+.checkbox-recordar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #f6f5ea;
+}
+
+.checkbox-recordar input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #88b6e8;
+    cursor: pointer;
+}
+
+.enlace-olvido {
+    color: #f6f5ea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.enlace-olvido:hover {
+    color: var(--var-claro);
+    text-shadow: 0 0 5px rgba(244, 230, 222, 0.3);
+}
+
+.boton-principal {
+    width: 100%;
+    padding: 16px;
+    background: var(--var-azul-oscuro);
+    color: #fafafa;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    /* para el efecto ! */
+    overflow: hidden;
+    border: 2px solid #88b6e8;
+    box-shadow: 0 8px 20px var(--var-azul-);
+}
+
+.boton-principal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(240, 240, 240, 0.308), transparent);
+    transition: left 0.5s;
+}
+
+.boton-principal:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 6px 20px #c0d7ffdd,
+        0 0 20px var(--var-azul-);
+    color: #88b6e8;
+}
+
+.boton-principal:hover::before {
+    left: 100%;
+}
+
+.boton-principal:active {
+    transform: translateY(-1px);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .contenedor-principal {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .tarjeta-login {
+        padding: 30px 25px;
+        margin: 10px;
+    }
+
+    .titulo-principal {
+        font-size: 1.5rem;
+    }
+
+    .logo-jujutsu img{
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+        align-items:  center;
+    }
+
+    .botones-sociales {
+        flex-direction: column;
+    }
+
+    .opciones-extra {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .tarjeta-login {
+        padding: 25px 20px;
+    }
+
+    .campo-entrada {
+        padding: 12px 15px;
+    }
+
+    .boton-principal {
+        padding: 14px;
+        font-size: 1rem;
+    }
+}
+
+/* Animaciones adicionales */
+.tarjeta-login {
+    animation: aparecerTarjeta 1s ease-out;
+}
+
+@keyframes aparecerTarjeta {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Efectos de partículas flotantes */
+.contenedor-principal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(3px 3px at 20px 30px, rgba(0, 239, 231, 0.3), transparent),
+        radial-gradient(3px 3px at 40px 70px, rgb(23, 51, 65), transparent),
+        radial-gradient(3px 3px at 90px 40px, rgb(63, 61, 128), transparent),
+        radial-gradient(3px 3px at 130px 80px, rgba(0, 51, 255, 0.985), transparent);
+    background-repeat: repeat;
+    background-size: 150px 100px;
+    animation: flotarParticulas 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes flotarParticulas {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-100px);
+    }
+}
