@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends 'index.html' %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administración</title>
-    <link rel="stylesheet" href="../css/admin.css">
-</head>
-
-<body>
-
+{% block contenedor %}
     <!-- CONTENIDO -->
     <main class="container">
         <!-- ENCABEZADO -->
@@ -40,19 +32,21 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for i in cat %}
                         <tr>
-                            <td>001</td>
+                            <td>{{i.Codprodu}}</td>
                             <td><img src="../img/Suguro Geto.jpeg" alt="Producto" class="table-image"></td>
-                            <td>fugura de suguru</td>
-                            <td>$1,299.99</td>
-                            <td>15</td>
+                            <td>{{i.Nombre}}</td>
+                            <td>$ {{i.Precio}}</td>
+                            <td>{{i.stock}}</td>
                             <td class="estado"><span class="status-badge status-active">Activo</span></td>
                             <td class="actions">
                                 <a href="editar-producto.html" class="btn btn-sm btn-secondary">Editar</a>
                                 <button class="btn btn-sm btn-danger" onclick="confirmarEliminacion()">Eliminar</button>
                             </td>
                         </tr>
-                        <tr>
+                        {% endfor %}
+                        <!-- <tr>
                             <td>002</td>
                             <td><img src="../img/Suguro Geto.jpeg" alt="Producto" class="table-image"></td>
                             <td>funda de oso</td>
@@ -63,7 +57,7 @@
                                 <a href="editar-producto.html" class="btn btn-sm btn-secondary">Editar</a>
                                 <button class="btn btn-sm btn-danger" onclick="confirmarEliminacion()">Eliminar</button>
                             </td>
-                        </tr>
+                        </tr> -->
 
                     </tbody>
                 </table>
@@ -116,7 +110,7 @@
     </main>
 
     <!-- MODAL -->
-    <div class="modal" id="deleteModal">
+    <!-- <div class="modal" id="deleteModal">
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Confirmar Eliminación</h3>
@@ -131,7 +125,7 @@
                 <button class="btn btn-danger" onclick="eliminarProducto()">Eliminar</button>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- MODAL -->
     <div class="modal" id="desactivarCuentaModal">
@@ -155,18 +149,14 @@
     <!-- JS -->
 
     <script>
-
-
         function abrirModalDesactivacion() {
             const modal = document.getElementById('desactivarCuentaModal');
             modal.style.display = 'flex';
         }
 
-
         function confirmarEliminacion() {
             document.getElementById('deleteModal').style.display = 'flex';
         }
-
 
         function cerrarModal() {
             const modales = document.querySelectorAll('.modal');
@@ -174,7 +164,6 @@
                 modal.style.display = 'none';
             });
         }
-
 
         function eliminarProducto() {
             alert("Producto eliminado");
@@ -196,9 +185,5 @@
             document.getElementById(tabId).classList.add('active');
             document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
         }
-
     </script>
-
-</body>
-
-</html>
+{% endblock %}

@@ -359,3 +359,29 @@ body {
         transform: translateY(-100px);
     }
 }
+
+.palabraresev input{
+    margin-left: 100px;
+    
+}
+
+#formularioLogin input{
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid var(--var-claro);
+    border-radius: 12px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+    background: #f6f5ea;
+}
+
+#formularioLogin input:hover{
+    outline: none;
+    box-shadow:
+        0 0 0 1px rgb(108, 165, 215),
+        0 0 20px #2d6cf4;
+    transform: translateY(-2px);
+    background: rgba(10, 15, 30, 0.9);
+    border: 2px solid #415F78;
+    color: #F2F0E2;
+}

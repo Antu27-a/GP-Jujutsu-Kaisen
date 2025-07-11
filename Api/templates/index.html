@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="../templates/static/css/tarjetas.css">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/tarjetas.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cargar-tarjeta.css' %}">
+    <link rel="stylesheet" href="{% static 'css/perfil-usuario.css' %}">
+    <link rel="stylesheet" href="{% static 'css/logi.css' %}">
+    <script src="{% static 'js/inicio.js' %}" defer></script>
 </head>
 
 <body>
@@ -23,16 +28,22 @@
 
             <!-- Navegación Desktop -->
             <nav class="nav-desktop">
-                <a href="#" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt="">Catálogo</a>
-                <a href="#" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt=""> Agregar Producto</a>
+                <a href="{% url 'Catalogo' %}" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt="">Catálogo</a>
+                <a href="{% url 'regis' %}" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt=""> Agregar Producto</a>
                 <a href="#" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt=""> Mi Perfil </a>
-                <a href="#" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt="">Iniciar sesion </a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'logouts' %}"class="nav-link">Cerrar sesion</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt="">Iniciar sesion </a>
+                {% endif %}
             </nav>
         </div>
     </header>
 
     <!-- Contenido de ejemplo -->
+    {% block contenedor %}
     <main>
+        
         <div class="presentacion">
             <h1><span class="resaltar">Juntos</span> hacemos <span class="resaltar">----- </span>los <span
                     class="resaltar">objetos </span>----</h1>
@@ -43,21 +54,21 @@
         <section class="productos-seccion">
             <h1 class="titulo-seccion">NUESTROS PRODUCTOS</h1>
             <div class="grid-productos">
+                {% for i in furm %}
                 <div class="tarjeta-producto">
                     <div class="imagen-producto">
-                        <img src="img/Suguro Geto.jpeg" alt="Suguro Geto">
+                        <img src="{{i.Imagen.url}}" alt="Suguro Geto">
                     </div>
                     <div class="contenido-producto">
-                        <h2 class="nombre-producto">Suguro Geto</h2>
-                        <p class="precio-producto">Precio: $999</p>
-                        <p class="stock-producto">Stock disponible: 8 unidades</p>
+                        <h2 class="nombre-producto">{{i.Nombre}}</h2>
+                        <p class="precio-producto">Precio:$ {{i.Precio}}</p>
+                        <p class="stock-producto">Stock disponible: {{i.Stock}} unidades</p>
                         <p class="descripcion-producto">
-                            Figura de colección de Suguro Geto. Alta calidad, detalles precisos e ideal para fanáticos
-                            de Jujutsu Kaisen.
+                            {{i.Desc}}
                         </p>
-                        <a href="#modal-1" class="btn-ver-mas">VER MÁS</a>
                     </div>
                 </div>
+                {% endfor %}
 
 
 
@@ -146,7 +157,9 @@
                 </div>
             </div>
         </div>
-
+        
+    </main>
+    {% endblock %}
 </body>
 
 </html>

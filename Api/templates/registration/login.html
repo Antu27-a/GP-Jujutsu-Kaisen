@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jujutsu Kaisen - Iniciar Sesión</title>
-    <link rel="stylesheet" href="../static/css/login.css">
-    <script src="../js/inicio.js"></script>
-</head>
-
-<body>
+{% extends 'Index.html' %}
+{% load static %}
+{% block contenedor %}
+<main>
     <section class="contenedor-principal">
         <div class="tarjeta-login">
             <div class="encabezado-logo">
@@ -23,9 +15,14 @@
                 <div class="pestana" onclick="cambiarPestana('registro')">Crear Cuenta</div>
             </div>
 
-            <!-- Formulario de Login -->
-            <form class="formulario activo" id="formularioLogin">
-                <div class="grupo-campo">
+            <!--Formulario de Login -->
+            <form class="formulario activo" id="formularioLogin" method="post">
+                <div class="palabraresev">
+                    {% csrf_token %}
+                    {{form}}
+                </div>
+
+                <!-- <div class="grupo-campo">
                     <label class="etiqueta-campo" for="emailLogin">Email o Usuario</label>
                     <input type="text" id="emailLogin" class="campo-entrada" placeholder="Ingresa tu email o usuario">
                 </div>
@@ -35,17 +32,17 @@
                     <input type="password" id="passwordLogin" class="campo-entrada" placeholder="Ingrese su contraseña">
                     <img src="ojo-abierto.png" class="icono-campo" onclick="alternarPassword('passwordLogin', this)"
                         alt="Ver contraseña">
-                </div>
+                </div> -->
 
-                <div class="opciones-extra">
+                <!-- <div class="opciones-extra">
                     <div class="checkbox-recordar">
                         <input type="checkbox" id="recordarme">
                         <label for="recordarme">Recordarme</label>
                     </div>
                     <a href="#" class="enlace-olvido">¿Olvidaste tu contraseña?</a>
-                </div>
+                </div> -->
 
-                <button type="submit" class="boton-principal">Iniciar Sesión</button>
+                <input type="submit" class="boton-principal" value="Iniciar Sesión" id="botondemier">
             </form>
 
             <!-- Formulario de Registro -->
@@ -81,9 +78,5 @@
             </form>
         </div>
     </section>
-
-
-
-</body>
-
-</html>
+</main>
+{% endblock %}
