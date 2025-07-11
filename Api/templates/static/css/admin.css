@@ -60,9 +60,9 @@ body {
 
 .btn-primary {
     padding: 16px;
-    background: var(--var-azul-medio);
+    background: var(--var-claro);
     color: #fafafa;
-    border: 2px solid var(--var-claro);
+    border: 2px solid var(--var-azul-medio);
     border-radius: 6px;
     font-size: 17px;
     font-weight: bold;
@@ -89,7 +89,7 @@ body {
     box-shadow:
         0 6px 20px #c0d7ffdd,
         0 0 20px var(--var-azul-);
-    color: var(--var-claro);
+    color: var(--var-azul-oscuro);
 }
 
 .btn-primary:hover::before {
@@ -132,7 +132,7 @@ body {
 }
 
 .tab-button {
-    border: 2px solid var(--var-claro);
+    border: 2px solid var(--var-azul-oscuro);
     padding: 16px;
     background-color: var(--var-azul-oscuro);
     margin-right: 0.5rem;

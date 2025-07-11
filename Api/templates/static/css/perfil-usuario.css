@@ -27,6 +27,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    
 }
 
 .encabezado {
@@ -68,17 +69,20 @@ body {
     background: white;
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 4px 15px rgba(26, 15, 26, 0.1);
+    box-shadow: 0 4px 15px rgba(15, 16, 26, 0.541);
     border: 2px solid var(--var-azul-medio);
     transition: all 0.3s ease;
 }
 
 .tarjeta:hover {
+    border: 2px solid var(--var-claro);
     transform: translateY(-8px);
+    box-shadow: 0 4px 15px rgba(15, 18, 26, 0.89);
 }
 
 .tarjeta-perfil {
     text-align: center;
+    background-color: #dfe4f8;
 }
 
 .contenedor-avatar {
@@ -101,6 +105,7 @@ body {
     transform: scale(1.1);
 }
 
+/*para cuando quiere cambiar el perfil  */
 .boton-subir-avatar {
     position: absolute;
     bottom: 0;
@@ -154,7 +159,7 @@ body {
 }
 
 .entrada-datos::placeholder {
-    color: #999;
+    color: #727272;
 }
 
 .mostrar-datos {
