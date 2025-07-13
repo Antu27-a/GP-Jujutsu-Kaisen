@@ -24,16 +24,9 @@
     <!-- aca no -->
     <header class="header1">
         <div class="container2">
-            <a href="#" class="logo">
-<<<<<<< Updated upstream
-                <div class="logo-icon">
-                    <img src="../static/img/LOGO.png" alt="Logo Jujutsu Kaisen">
-                </div>
-                <div class="logo-text">Jjk Freaks </div>
-=======
+            <a href="{% url 'Inicio' %}" class="logo">
                 <div class="logo-icon"><img src="{% static 'img/LOGO-JJK-FREAKS.png' %}" alt=""></div>
                 <div class="logo-text">Jujutsu kaisen</div>
->>>>>>> Stashed changes
             </a>
 
             <!-- Checkbox oculto para controlar el menú -->
@@ -49,12 +42,12 @@
             <!-- Navegación -->
             <nav class="nav-desktop">
                 <!-- ambos -->
-                <a href="" class="nav-link">
+                <a href="{% url 'Catalogo' %}" class="nav-link">
                     <img class="icon" src="{% static 'img/icon-menu/categoria.png' %}" alt="">
                     Catálogo
                 </a>
                 <!-- admin -->
-                <a href="" class="nav-link">
+                <a href="{% url 'regis' %}" class="nav-link">
                     <img class="icon" src="{% static 'img/icon-menu/agregar.png' %}" alt="">
                     Agregar Producto
                 </a>
@@ -69,12 +62,12 @@
                 </a>
                 <!-- Enlaces de autenticación -->
                 {% if user.is_authenticated %}
-                <a href="" class="nav-link logout-link">
+                <a href="{% url 'logouts' %}" class="nav-link logout-link">
                     <img class="icon" src="{% static 'img/icon-menu/cerrar-sesion.png' %}" alt="">
                     Cerrar sesión
                 </a>
                 {% else %}
-                <a href="" class="nav-link login-link">
+                <a href="{% url 'login' %}" class="nav-link login-link">
                     <img class="icon" src="{% static 'img/icon-menu/iniciar-sesion.png' %}" alt="">
                     Iniciar sesión
                 </a>
@@ -105,7 +98,7 @@
 
                     <div class="carousel-inner">
                         <div class="carousel-item active imagen-con-efecto">
-                            <img src="../static/img/uno.jpg" class="d-block w-100" alt="Imagen Paisaje 1">
+                            <img src="{% static 'img/uno.jpg' %}" class="d-block w-100" alt="Imagen Paisaje 1">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Producto1</h5>
                                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, blanditiis. Obcaecati
@@ -114,14 +107,14 @@
                             </div>
                         </div>
                         <div class="carousel-item imagen-con-efecto">
-                            <img src="../static/img/gojo.jpg" class="d-block w-100" alt="Imagen Paisaje 2">
+                            <img src="{% static 'img/gojo.jpg' %}" class="d-block w-100" alt="Imagen Paisaje 2">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Producto 2</h5>
                                 <p>aa</p>
                             </div>
                         </div>
                         <div class="carousel-item imagen-con-efecto">
-                            <img src="../static/img/dos.jpg" class="d-block w-100" alt="Imagen Paisaje 3">
+                            <img src="{% static 'img/dos.jpg' %}" class="d-block w-100" alt="Imagen Paisaje 3">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Producto3</h5>
                                 <p>Descripcion</p>
@@ -149,26 +142,26 @@
 
                         <div class="contenedor-carrusel-vertical">
                             <div class="carrusel-vertical">
-                                <img src="../static/img/BANNERS/banner1.jpeg" alt="Imagen Vertical 1"
+                                <img src="{% static 'img/BANNERS/banner1.jpeg' %}" alt="Imagen Vertical 1"
                                     class="imagen-vertical">
-                                <img src="../static/img/BANNERS/banner2.jpeg" alt="Imagen Vertical 2"
+                                <img src="{% static 'img/BANNERS/banner2.jpeg' %}" alt="Imagen Vertical 2"
                                     class="imagen-vertical">
-                                <img src="../static/img/BANNERS/banner3.jpeg" alt="Imagen Vertical 3"
+                                <img src="{% static 'img/BANNERS/banner3.jpeg' %}" alt="Imagen Vertical 3"
                                     class="imagen-vertical">
-                                <img src="../static/img/BANNERS/banner4.jpeg" alt="Imagen Vertical 4"
+                                <img src="{% static 'img/BANNERS/banner4.jpeg' %}" alt="Imagen Vertical 4"
                                     class="imagen-vertical">
-                                <img src="../static/img/BANNERS/banner5.jpeg" alt="Imagen Vertical 5"
+                                <img src="{% static 'img/BANNERS/banner5.jpeg' %}" alt="Imagen Vertical 5"
                                     class="imagen-vertical">
                                 <!-- Duplicamos las imágenes para el efecto infinito -->
-                                <img src="../static/img/BANNERS/banner1.jpeg" alt="Imagen Vertical 1"
+                                <img src="{% static 'img/BANNERS/banner1.jpeg' %}" alt="Imagen Vertical 1"
                                     class="imagen-vertical">
-                                <img src="../static/img/BANNERS/banner2.jpeg" alt="Imagen Vertical 2"
+                                <img src="{% static 'img/BANNERS/banner2.jpeg' %}" alt="Imagen Vertical 2"
                                     class="imagen-vertical">
-                                <img src="../static/img/BANNERS/banner3.jpeg" alt="Imagen Vertical 3"
+                                <img src="{% static 'img/BANNERS/banner3.jpeg' %}" alt="Imagen Vertical 3"
                                     class="imagen-vertical">
-                                <img src="../static/img/BANNERS/banner4.jpeg" alt="Imagen Vertical 4"
+                                <img src="{% static 'img/BANNERS/banner4.jpeg' %}" alt="Imagen Vertical 4"
                                     class="imagen-vertical">
-                                <img src="../static/img/BANNERS/banner5.jpeg" alt="Imagen Vertical 5"
+                                <img src="{% static 'img/BANNERS/banner5.jpeg' %}" alt="Imagen Vertical 5"
                                     class="imagen-vertical">
                             </div>
 
@@ -197,34 +190,34 @@
                 <div class="contenedor-input-busqueda">
                     <input type="text" class="input-busqueda"
                         placeholder="Escribe el nombre del producto que buscas...">
-                    <span class="icono-busqueda"><img src="../static/img/busqueda.png" alt=""></span>
+                    <span class="icono-busqueda"><img src="{% static 'img/busqueda.png' %}" alt=""></span>
                 </div>
                 <div class="filtros-categoria">
                     <div class="opcion-filtro">
                         <input type="radio" id="filtro-todos" name="categoria" checked>
                         <label for="filtro-todos" class="etiqueta-filtro"><img
-                                src="../static/img/icon-menu/categoria.png" alt="">
+                                src="{% static 'img/icon-menu/categoria.png' %}" alt="">
                             Todos</label>
                     </div>
                     <div class="opcion-filtro">
                         <input type="radio" id="filtro-figuras" name="categoria">
                         <label for="filtro-figuras" class="etiqueta-filtro"> <img
-                                src="../static/img/figura-de-accion.png" alt="">Figuras</label>
+                                src="{% static 'img/figura-de-accion.png' %}" alt="">Figuras</label>
                     </div>
                     <div class="opcion-filtro">
                         <input type="radio" id="filtro-ropa" name="categoria">
-                        <label for="filtro-ropa" class="etiqueta-filtro"><img src="../static/img/ropa-limpia.png"
+                        <label for="filtro-ropa" class="etiqueta-filtro"><img src="{% static 'img/ropa-limpia.png' %}"
                                 alt="">Ropa</label>
                     </div>
                     <div class="opcion-filtro">
                         <input type="radio" id="filtro-manga" name="categoria">
-                        <label for="filtro-manga" class="etiqueta-filtro"><img src="../static/img/libro.png"
+                        <label for="filtro-manga" class="etiqueta-filtro"><img src="{% static 'img/libro.png' %}"
                                 alt="">Manga</label>
                     </div>
                     <div class="opcion-filtro">
                         <input type="radio" id="filtro-coleccionables" name="categoria">
                         <label for="filtro-coleccionables" class="etiqueta-filtro"><img
-                                src="../static/img/coleccion (1).png" alt=""> Coleccionables</label>
+                                src="{% static 'img/coleccion (1).png' %}" alt=""> Coleccionables</label>
                     </div>
                 </div>
             </div>
@@ -270,7 +263,7 @@
                         </p>
                         <a href="detalle-producto.html?id=4" class="boton-ver-mas">Ver más detalles</a>
                         <div class="alerta-stock sin-stock">
-                            <span class="icono-alerta"><img src="../static/img/cross.png" alt=""></span>
+                            <span class="icono-alerta"><img src="{% static 'img/cross.png' %}" alt=""></span>
                             <span class="texto-alerta sin-stock-texto">Producto agotado</span>
                         </div>
                     </div>
