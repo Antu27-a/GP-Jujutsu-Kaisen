@@ -176,9 +176,8 @@ body {
 }
 
 /* Estados de autenticación */
-.login-link {
+.nav-link .login-link {
     background: linear-gradient(135deg, var(--var-azul-medio), var(--var-claro));
-    color: rgb(8, 12, 255);
     cursor: pointer;
     transition: all 0.3s ease;
 }
