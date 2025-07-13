@@ -24,7 +24,7 @@ function alternarPassword(idCampo, icono) {
     campo.type = esPassword ? 'text' : 'password';
 
     // Cambiar imagen según estado
-    icono.src = esPassword ? 'suguru Geto.png' : 'Suguro Geto.png';
+    icono.src = esPassword ? 'img/icon-menu/ojo-abierto.png' : 'static/img/icon-menu/ojo-esconder.png';
 }
 
 

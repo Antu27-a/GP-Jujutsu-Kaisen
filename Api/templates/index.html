@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Jujutsu Kaisen - Productos </title>
-
+    <link rel="stylesheet" href="{% static 'css/carrucel.css' %}">
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
     <link rel="stylesheet" href="../templates/static/css/index.css">
     <link rel="stylesheet" href="../templates/static/css/tarjetas.css">
@@ -17,10 +17,11 @@
     <link rel="stylesheet" href="{% static 'css/perfil-usuario.css' %}">
     <link rel="stylesheet" href="{% static 'css/logi.css' %}">
     <script src="{% static 'js/inicio.js' %}" defer></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
+    <!-- aca no -->
     <header class="header1">
         <div class="container2">
             <a href="#" class="logo">
@@ -42,27 +43,37 @@
 
             <!-- Navegación -->
             <nav class="nav-desktop">
-                <a href="catalogo.html" class="nav-link">
-                    <img class="icon" src="../static/img/icon-menu/categoria.png" alt="">
+                <!-- ambos -->
+                <a href="" class="nav-link">
+                    <img class="icon" src="{% static 'img/icon-menu/categoria.png' %}" alt="">
                     Catálogo
                 </a>
-                <a href="agregar-producto.html" class="nav-link">
-                    <img class="icon" src="../static/img/icon-menu/agregar.png" alt="">
+                <!-- admin -->
+                <a href="" class="nav-link">
+                    <img class="icon" src="{% static 'img/icon-menu/agregar.png' %}" alt="">
                     Agregar Producto
                 </a>
-                <a href="perfil.html" class="nav-link">
-                    <img class="icon" src="../static/img/icon-menu/perfil.png" alt="">
+                <!-- ambos -->
+                <a href="" class="nav-link">
+                    <img class="icon" src="{% static 'img/icon-menu/perfil.png' %}" alt="">
                     Mi Perfil
+                </a>
+                <a href="" class="nav-link">
+                    <img class="icon" src="{% static 'img/icon-menu/administrador.png' %}" alt="">
+                    administrar
                 </a>
 
                 <!-- Enlaces de autenticación -->
-                <a href="#login" class="nav-link login-link">
-                    <img class="icon" src="../static/img/icon-menu/iniciar-sesion.png" alt="">
-                    Iniciar sesión
-                </a>
-                <a href="#logout" class="nav-link logout-link">
+                {% if user.is_authenticated %}
+                <a href="" class="nav-link logout-link">
                     Cerrar sesión
                 </a>
+                {% else %}
+                <a href="" class="nav-link login-link"></a>
+                <img class="icon" src="{% static 'img/icon-menu/iniciar-sesion.png' %}" alt="">
+                Iniciar sesión
+                </a>
+                {% endif %}
             </nav>
         </div>
     </header>
@@ -70,93 +81,226 @@
 
     <!-- Contenido de ejemplo -->
     {% block contenedor %}
-    <main class="contenidoind">
-        <div class="encabezado1">
-            <h1 class="titulo-principal">Tienda Jujutsu Kaisen</h1>
-            <p class="subtitulo">Productos oficiales del mundo de los hechiceros</p>
+    <main>
+
+        <div class="contenedor-principal-carrucel">
+
+            <!-- Carrusel Horizontal - ANCHO COMPLETO -->
+            <div class="seccion-carrusel-horizontal">
+                <div id="carruselHorizontal" class="carousel slide carrusel-horizontal" data-bs-ride="carousel"
+                    data-bs-interval="4000">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carruselHorizontal" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carruselHorizontal" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carruselHorizontal" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active imagen-con-efecto">
+                            <img src="../static/img/LOGO.png" class="d-block w-100" alt="Imagen Paisaje 1">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Producto1</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, blanditiis. Obcaecati
+                                    voluptate, similique perferendis aut dolores quia! Mollitia sit quas debitis,
+                                    reiciendis quos, repellat at libero vero molestias ad enim?</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item imagen-con-efecto">
+                            <img src="../static/img/gojo.jpg" class="d-block w-100" alt="Imagen Paisaje 2">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Producto 2</h5>
+                                <p>aa</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item imagen-con-efecto">
+                            <img src="/placeholder.svg?height=800&width=1920" class="d-block w-100"
+                                alt="Imagen Paisaje 3">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Producto3</h5>
+                                <p>Descripcion</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carruselHorizontal"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carruselHorizontal"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Carrusel Vertical - Sección Completa -->
+            <div class="seccion-carrusel-vertical">
+                <div class="contenedor-vertical-wrapper">
+                    <div class="carrusel-vertical-container">
+
+                        <div class="contenedor-carrusel-vertical">
+                            <div class="carrusel-vertical">
+                                <img src="../static/img/BANNERS/banner1.jpeg" alt="Imagen Vertical 1"
+                                    class="imagen-vertical">
+                                <img src="../static/img/BANNERS/banner2.jpeg" alt="Imagen Vertical 2"
+                                    class="imagen-vertical">
+                                <img src="../static/img/BANNERS/banner3.jpeg" alt="Imagen Vertical 3"
+                                    class="imagen-vertical">
+                                <img src="../static/img/BANNERS/banner4.jpeg" alt="Imagen Vertical 4"
+                                    class="imagen-vertical">
+                                <img src="../static/img/BANNERS/banner5.jpeg" alt="Imagen Vertical 5"
+                                    class="imagen-vertical">
+                                <!-- Duplicamos las imágenes para el efecto infinito -->
+                                <img src="../static/img/BANNERS/banner1.jpeg" alt="Imagen Vertical 1"
+                                    class="imagen-vertical">
+                                <img src="../static/img/BANNERS/banner2.jpeg" alt="Imagen Vertical 2"
+                                    class="imagen-vertical">
+                                <img src="../static/img/BANNERS/banner3.jpeg" alt="Imagen Vertical 3"
+                                    class="imagen-vertical">
+                                <img src="../static/img/BANNERS/banner4.jpeg" alt="Imagen Vertical 4"
+                                    class="imagen-vertical">
+                                <img src="../static/img/BANNERS/banner5.jpeg" alt="Imagen Vertical 5"
+                                    class="imagen-vertical">
+                            </div>
+
+                            <!-- Overlay para efecto de sombra -->
+                            <div class="overlay-sombra-superior"></div>
+                            <div class="overlay-sombra-inferior"></div>
+                        </div>
+
+                        <div class="texto-info">
+                            <small>Pasa el mouse para pausar el desplazamiento</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="contenedor-busqueda">
-            <h2 class="titulo-busqueda">Buscar Productos</h2>
-            <div class="contenedor-input-busqueda">
-                <input type="text" class="input-busqueda" placeholder="Escribe el nombre del producto que buscas...">
-                <span class="icono-busqueda"><img src="../static/img/busqueda.png" alt=""></span>
-            </div>
-            <div class="filtros-categoria">
-                <div class="opcion-filtro">
-                    <input type="radio" id="filtro-todos" name="categoria" checked>
-                    <label for="filtro-todos" class="etiqueta-filtro"><img src="../static/img/icon-menu/categoria.png" alt="">
-                        Todos</label>
-                </div>
-                <div class="opcion-filtro">
-                    <input type="radio" id="filtro-figuras" name="categoria">
-                    <label for="filtro-figuras" class="etiqueta-filtro"> <img src="../static/img/figura-de-accion.png" alt="">Figuras</label>
-                </div>
-                <div class="opcion-filtro">
-                    <input type="radio" id="filtro-ropa" name="categoria">
-                    <label for="filtro-ropa" class="etiqueta-filtro"><img src="../static/img/ropa-limpia.png" alt="">Ropa</label>
-                </div>
-                <div class="opcion-filtro">
-                    <input type="radio" id="filtro-manga" name="categoria">
-                    <label for="filtro-manga" class="etiqueta-filtro"><img src="../static/img/libro.png" alt="">Manga</label>
-                </div>
-                <div class="opcion-filtro">
-                    <input type="radio" id="filtro-coleccionables" name="categoria">
-                    <label for="filtro-coleccionables" class="etiqueta-filtro"><img src="../static/img/coleccion (1).png" alt=""> Coleccionables</label>
-                </div>
-            </div>
-        </div>
 
-        <!-- Inputs de filtro ocultos para CSS -->
-        <input type="radio" id="filtro-todos" name="categoria" checked style="display: none;">
-        <input type="radio" id="filtro-figuras" name="categoria" style="display: none;">
-        <input type="radio" id="filtro-ropa" name="categoria" style="display: none;">
-        <input type="radio" id="filtro-manga" name="categoria" style="display: none;">
-        <input type="radio" id="filtro-coleccionables" name="categoria" style="display: none;">
-
-        <div class="cuadricula-productos">
-            <!-- Figuras -->
-            {% for i in furm %}
-            <div class="tarjeta-producto ">
-                <div class="contenedor-imagen-producto">
-                    <img src="{{i.Imagen.url}}" alt="Figura Yuji Itadori" class="imagen-producto">
-                </div>
-                <div class="informacion-producto">
-                    <h3 class="nombre-producto">{{i.Nombre}}</h3>
-                    <div class="precio-producto">Precio:$ {{i.Precio}}</div>
-                    <div class="stock-producto stock-alto">Stock disponible: {{i.Stock}} unidades</div>
-                    <p class="descripcion-producto">
-                        {{i.Desc}}
-                    </p>
-                    <a href="" class="boton-ver-mas">Ver más detalles</a>
-                </div>
+        <section class="contenidoind">
+            <div class="encabezado1">
+                <h1 class="titulo-principal">Tienda Jujutsu Kaisen</h1>
+                <p class="subtitulo">Productos oficiales del mundo de los hechiceros</p>
             </div>
-            {% endfor %}
 
-            <div class="tarjeta-producto">
-                <div class="contenedor-imagen-producto">
-                    <img src="/placeholder.svg?height=200&width=300" alt="Figura Nobara Kugisaki"
-                        class="imagen-producto">
+            <div class="contenedor-busqueda">
+                <h2 class="titulo-busqueda">Buscar Productos</h2>
+                <div class="contenedor-input-busqueda">
+                    <input type="text" class="input-busqueda"
+                        placeholder="Escribe el nombre del producto que buscas...">
+                    <span class="icono-busqueda"><img src="../static/img/busqueda.png" alt=""></span>
                 </div>
-                <div class="informacion-producto">
-                    <h3 class="nombre-producto">Figura Nobara Kugisaki</h3>
-                    <div class="precio-producto">$87.99</div>
-                    <div class="stock-producto stock-bajo">Stock: 0 unidades</div>
-                    <p class="descripcion-producto">
-                        Figura de Nobara con martillo y clavos malditos. Pose dinámica
-                        con efectos de técnica de muñeco vudú y expresión determinada.
-                    </p>
-                    <a href="detalle-producto.html?id=4" class="boton-ver-mas">Ver más detalles</a>
-                    <div class="alerta-stock sin-stock">
-                        <span class="icono-alerta"><img src="../static/img/cross.png" alt=""></span>
-                        <span class="texto-alerta sin-stock-texto">Producto agotado</span>
+                <div class="filtros-categoria">
+                    <div class="opcion-filtro">
+                        <input type="radio" id="filtro-todos" name="categoria" checked>
+                        <label for="filtro-todos" class="etiqueta-filtro"><img
+                                src="../static/img/icon-menu/categoria.png" alt="">
+                            Todos</label>
+                    </div>
+                    <div class="opcion-filtro">
+                        <input type="radio" id="filtro-figuras" name="categoria">
+                        <label for="filtro-figuras" class="etiqueta-filtro"> <img
+                                src="../static/img/figura-de-accion.png" alt="">Figuras</label>
+                    </div>
+                    <div class="opcion-filtro">
+                        <input type="radio" id="filtro-ropa" name="categoria">
+                        <label for="filtro-ropa" class="etiqueta-filtro"><img src="../static/img/ropa-limpia.png"
+                                alt="">Ropa</label>
+                    </div>
+                    <div class="opcion-filtro">
+                        <input type="radio" id="filtro-manga" name="categoria">
+                        <label for="filtro-manga" class="etiqueta-filtro"><img src="../static/img/libro.png"
+                                alt="">Manga</label>
+                    </div>
+                    <div class="opcion-filtro">
+                        <input type="radio" id="filtro-coleccionables" name="categoria">
+                        <label for="filtro-coleccionables" class="etiqueta-filtro"><img
+                                src="../static/img/coleccion (1).png" alt=""> Coleccionables</label>
                     </div>
                 </div>
             </div>
 
-        </div>
+            <!-- Inputs de filtro ocultos para CSS -->
+            <input type="radio" id="filtro-todos" name="categoria" checked style="display: none;">
+            <input type="radio" id="filtro-figuras" name="categoria" style="display: none;">
+            <input type="radio" id="filtro-ropa" name="categoria" style="display: none;">
+            <input type="radio" id="filtro-manga" name="categoria" style="display: none;">
+            <input type="radio" id="filtro-coleccionables" name="categoria" style="display: none;">
 
+            <div class="cuadricula-productos">
+                <!-- Figuras -->
+                {% for i in furm %}
+                <div class="tarjeta-producto ">
+                    <div class="contenedor-imagen-producto">
+                        <img src="{{i.Imagen.url}}" alt="Figura Yuji Itadori" class="imagen-producto">
+                    </div>
+                    <div class="informacion-producto">
+                        <h3 class="nombre-producto">{{i.Nombre}}</h3>
+                        <div class="precio-producto">Precio:$ {{i.Precio}}</div>
+                        <div class="stock-producto stock-alto">Stock disponible: {{i.Stock}} unidades</div>
+                        <p class="descripcion-producto">
+                            {{i.Desc}}
+                        </p>
+                        <a href="" class="boton-ver-mas">Ver más detalles</a>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="tarjeta-producto">
+                    <div class="contenedor-imagen-producto">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Figura Nobara Kugisaki"
+                            class="imagen-producto">
+                    </div>
+                    <div class="informacion-producto">
+                        <h3 class="nombre-producto">Figura Nobara Kugisaki</h3>
+                        <div class="precio-producto">$87.99</div>
+                        <div class="stock-producto stock-bajo">Stock: 0 unidades</div>
+                        <p class="descripcion-producto">
+                            Figura de Nobara con martillo y clavos malditos. Pose dinámica
+                            con efectos de técnica de muñeco vudú y expresión determinada.
+                        </p>
+                        <a href="detalle-producto.html?id=4" class="boton-ver-mas">Ver más detalles</a>
+                        <div class="alerta-stock sin-stock">
+                            <span class="icono-alerta"><img src="../static/img/cross.png" alt=""></span>
+                            <span class="texto-alerta sin-stock-texto">Producto agotado</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Configuración adicional para el carrusel horizontal
+        document.addEventListener('DOMContentLoaded', function () {
+            const carruselHorizontal = document.getElementById('carruselHorizontal');
+
+            // Pausar al pasar el mouse
+            carruselHorizontal.addEventListener('mouseenter', function () {
+                const carouselInstance = bootstrap.Carousel.getInstance(carruselHorizontal);
+                if (carouselInstance) {
+                    carouselInstance.pause();
+                }
+            });
+
+            // Reanudar al quitar el mouse
+            carruselHorizontal.addEventListener('mouseleave', function () {
+                const carouselInstance = bootstrap.Carousel.getInstance(carruselHorizontal);
+                if (carouselInstance) {
+                    carouselInstance.cycle();
+                }
+            });
+        });
+    </script>
+
+
     {% endblock %}
 </body>
 

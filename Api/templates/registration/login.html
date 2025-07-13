@@ -5,9 +5,10 @@
     <section class="contenedor-principal">
         <div class="tarjeta-login">
             <div class="encabezado-logo">
-                <div class="logo-jujutsu"><img src="../static/img/LOGO-JJK-FREAKS.png" alt=""></div>
+                <div class="logo-jujutsu"><img src="{% static 'img/LOGO.png' %}" alt=""></div>
                 <h1 class="titulo-principal">Jujutsu Kaisen</h1>
                 <p class="subtitulo">Accede a tu cuenta de hechicero</p>
+                
             </div>
 
             <div class="pestanas-formulario">
@@ -62,7 +63,7 @@
                     <label class="etiqueta-campo" for="passwordRegistro">Contraseña</label>
                     <input type="password" id="passwordRegistro" class="campo-entrada"
                         placeholder="Crea una contraseña">
-                    <img src="ojo-abierto.png" class="icono-campo" onclick="alternarPassword('passwordRegistro', this)"
+                    <img src="{% static 'img/icon-menu/ojo-abierto.png' %}" class="icono-campo" onclick="alternarPassword('passwordRegistro', this)"
                         alt="Ver contraseña">
                 </div>
 
@@ -70,7 +71,7 @@
                     <label class="etiqueta-campo" for="confirmarPassword">Confirmar Contraseña</label>
                     <input type="password" id="confirmarPassword" class="campo-entrada"
                         placeholder="Confirma tu contraseña">
-                    <img src="ojo-abierto.png" class="icono-campo" onclick="alternarPassword('confirmarPassword', this)"
+                    <img src="{% static 'img/icon-menu/ojo-abierto.png' %}" class="icono-campo" onclick="alternarPassword('confirmarPassword', this)"
                         alt="Ver contraseña">
                 </div>
 

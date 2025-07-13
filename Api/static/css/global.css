@@ -131,13 +131,13 @@ body {
     gap: 20px;
     align-items: center;
 }
-
+/* .... */
 .nav-link {
     color: #000000;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 20px;
-    padding: 8px 16px;
+    padding: 10px 16px;
     border-radius: 6px;
     transition: all 0.3s ease;
     position: relative;
@@ -159,8 +159,9 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--var-azul-medio);
+    color: var(--var-claro);
     background: rgba(87, 117, 250, 0.144);
+    
 }
 
 .nav-link:hover::after {
@@ -172,9 +173,11 @@ body {
 }
 
 /* Estados de autenticación */
-.login-link {
+.nav-link .login-link {
     background: linear-gradient(135deg, var(--var-azul-medio), var(--var-claro));
-    color: white !important;
+    color: rgb(8, 12, 255);
+    cursor: pointer;
+    
 }
 
 .login-link:hover {
@@ -183,14 +186,14 @@ body {
 }
 
 .logout-link {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    color: white !important;
+    background: #0a0f1a;
+    color: white ;
     display: none;
-    /* Por defecto oculto */
+ 
 }
 
 .logout-link:hover {
-    background: linear-gradient(135deg, #c0392b, #e74c3c);
+    background: black;
     transform: translateY(-2px);
 }
 
@@ -262,7 +265,8 @@ body {
     }
 
     .nav-link:hover {
-        background: rgba(87, 117, 250, 0.1);
+        background: var(--var-claro);
+        color: var(--var-fondo);
         transform: translateX(5px);
     }
 

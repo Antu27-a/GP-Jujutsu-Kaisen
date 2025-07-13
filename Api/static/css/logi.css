@@ -246,6 +246,7 @@ body {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(240, 240, 240, 0.308), transparent);
     transition: left 0.5s;
+    
 }
 
 .boton-principal:hover {
@@ -253,7 +254,7 @@ body {
     box-shadow:
         0 6px 20px #c0d7ffdd,
         0 0 20px var(--var-azul-);
-    color: #88b6e8;
+    color: #ffffff;
 }
 
 .boton-principal:hover::before {
