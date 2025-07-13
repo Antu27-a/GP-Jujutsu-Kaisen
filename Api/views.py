@@ -23,7 +23,7 @@ def cata(request):
     data={
         'cat':query
     }
-    return render(request, "admin.html", data)
+    return render(request, "pages/admin.html", data)
 
 def salir(request):
     logout(request)
