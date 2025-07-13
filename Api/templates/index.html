@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 {% load static %}
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tienda Jujutsu Kaisen - Productos </title>
+
     <link rel="stylesheet" href="../templates/static/css/index.css">
     <link rel="stylesheet" href="../templates/static/css/tarjetas.css">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
@@ -16,6 +17,7 @@
     <link rel="stylesheet" href="{% static 'css/perfil-usuario.css' %}">
     <link rel="stylesheet" href="{% static 'css/logi.css' %}">
     <script src="{% static 'js/inicio.js' %}" defer></script>
+
 </head>
 
 <body>
@@ -28,13 +30,16 @@
 
             <!-- Navegación Desktop -->
             <nav class="nav-desktop">
-                <a href="{% url 'Catalogo' %}" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt="">Catálogo</a>
-                <a href="{% url 'regis' %}" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt=""> Agregar Producto</a>
+                <a href="{% url 'Catalogo' %}" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg"
+                        alt="">Catálogo</a>
+                <a href="{% url 'regis' %}" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt=""> Agregar
+                    Producto</a>
                 <a href="#" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt=""> Mi Perfil </a>
                 {% if user.is_authenticated %}
-                <a href="{% url 'logouts' %}"class="nav-link">Cerrar sesion</a>
+                <a href="{% url 'logouts' %}" class="nav-link">Cerrar sesion</a>
                 {% else %}
-                <a href="{% url 'login' %}" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt="">Iniciar sesion </a>
+                <a href="{% url 'login' %}" class="nav-link"> <img class="icon" src="Suguro Geto.jpeg" alt="">Iniciar
+                    sesion </a>
                 {% endif %}
             </nav>
         </div>
@@ -43,121 +48,91 @@
     <!-- Contenido de ejemplo -->
     {% block contenedor %}
     <main>
-        
-        <div class="presentacion">
-            <h1><span class="resaltar">Juntos</span> hacemos <span class="resaltar">----- </span>los <span
-                    class="resaltar">objetos </span>----</h1>
-            <h3>B A N N E R S.</h3>
-            <input type="button" value="Explorar" class="btn-presentacion">
+        <div class="encabezado">
+            <h1 class="titulo-principal">Tienda Jujutsu Kaisen</h1>
+            <p class="subtitulo">Productos oficiales del mundo de los hechiceros</p>
         </div>
 
-        <section class="productos-seccion">
-            <h1 class="titulo-seccion">NUESTROS PRODUCTOS</h1>
-            <div class="grid-productos">
-                {% for i in furm %}
-                <div class="tarjeta-producto">
-                    <div class="imagen-producto">
-                        <img src="{{i.Imagen.url}}" alt="Suguro Geto">
-                    </div>
-                    <div class="contenido-producto">
-                        <h2 class="nombre-producto">{{i.Nombre}}</h2>
-                        <p class="precio-producto">Precio:$ {{i.Precio}}</p>
-                        <p class="stock-producto">Stock disponible: {{i.Stock}} unidades</p>
-                        <p class="descripcion-producto">
-                            {{i.Desc}}
-                        </p>
-                    </div>
-                </div>
-                {% endfor %}
-
-
-
-                <div class="tarjeta-producto">
-                    <div class="imagen-producto">
-                        <img src="/placeholder.svg?height=300&width=250" alt="Satoru Gojo">
-                    </div>
-                    <div class="contenido-producto">
-                        <h2 class="nombre-producto">Satoru Gojo</h2>
-                        <p class="precio-producto">Precio: $1299</p>
-                        <p class="stock-producto">Stock disponible: 5 unidades</p>
-                        <p class="descripcion-producto">
-                            Figura premium de Satoru Gojo con efectos especiales. Edición limitada con base
-                            iluminada y detalles únicos.
-                        </p>
-                        <a href="#modal-3" class="btn-ver-mas">VER MÁS</a>
-                    </div>
-                </div>
-
+        <div class="contenedor-busqueda">
+            <h2 class="titulo-busqueda">Buscar Productos</h2>
+            <div class="contenedor-input-busqueda">
+                <input type="text" class="input-busqueda" placeholder="Escribe el nombre del producto que buscas...">
+                <span class="icono-busqueda"><img src="img/Suguro Geto.jpeg" alt=""></span>
             </div>
-        </section>
-
-        <!-- Modales -->
-        <div id="modal-1" class="modal-overlay">
-            <div class="modal-contenido">
-                <a href="" class="modal-cerrar">&times;</a>
-                <div class="modal-horizontal">
-                    <div class="modal-imagen">
-                        <img src="/placeholder.svg?height=400&width=350" alt="Suguro Geto">
-                    </div>
-                    <div class="modal-info">
-                        <h2>Suguro Geto</h2>
-                        <p class="modal-precio">$999</p>
-                        <p class="modal-stock">Stock: 8 unidades disponibles</p>
-                        <div class="modal-descripcion">
-                            <h3>Descripción detallada:</h3>
-                            <p>Figura de colección de alta calidad de Suguro Geto, uno de los personajes más complejos
-                                de Jujutsu Kaisen. Esta figura captura perfectamente su presencia imponente y sus
-                                detalles característicos.</p>
-                            <ul>
-                                <li>Material: PVC de alta calidad</li>
-                                <li>Altura: 25cm aproximadamente</li>
-                                <li>Incluye base decorativa</li>
-                                <li>Edición limitada</li>
-                                <li>Empaque premium con certificado de autenticidad</li>
-                            </ul>
-                        </div>
-                        <div class="modal-acciones">
-                            <button class="btn-comprar">COMPRAR AHORA</button>
-                            <button class="btn-carrito">AGREGAR AL CARRITO</button>
-                        </div>
-                    </div>
+            <div class="filtros-categoria">
+                <div class="opcion-filtro">
+                    <input type="radio" id="filtro-todos" name="categoria" checked>
+                    <label for="filtro-todos" class="etiqueta-filtro"><img src="img/Suguro Geto.jpeg" alt="">
+                        Todos</label>
+                </div>
+                <div class="opcion-filtro">
+                    <input type="radio" id="filtro-figuras" name="categoria">
+                    <label for="filtro-figuras" class="etiqueta-filtro">Figuras</label>
+                </div>
+                <div class="opcion-filtro">
+                    <input type="radio" id="filtro-ropa" name="categoria">
+                    <label for="filtro-ropa" class="etiqueta-filtro">Ropa</label>
+                </div>
+                <div class="opcion-filtro">
+                    <input type="radio" id="filtro-manga" name="categoria">
+                    <label for="filtro-manga" class="etiqueta-filtro">Manga</label>
+                </div>
+                <div class="opcion-filtro">
+                    <input type="radio" id="filtro-coleccionables" name="categoria">
+                    <label for="filtro-coleccionables" class="etiqueta-filtro"> Coleccionables</label>
                 </div>
             </div>
         </div>
 
-        <div id="modal-2" class="modal-overlay">
-            <div class="modal-contenido">
-                <a href="" class="modal-cerrar">&times;</a>
-                <div class="modal-horizontal">
-                    <div class="modal-imagen">
-                        <img src="img/Suguro Geto.jpeg" alt="Suguro Geto">
-                    </div>
-                    <div class="modal-info">
-                        <h2>Suguro Geto</h2>
-                        <p class="modal-precio">$999</p>
-                        <p class="modal-stock">Stock: 8 unidades disponibles</p>
-                        <div class="modal-descripcion">
-                            <h3>Descripción detallada:</h3>
-                            <p>Figura de colección de alta calidad de Suguro Geto, uno de los personajes más complejos
-                                de Jujutsu Kaisen. Esta figura captura perfectamente su presencia imponente y sus
-                                detalles característicos.</p>
-                            <ul>
-                                <li>Material: PVC de alta calidad</li>
-                                <li>Altura: 25cm aproximadamente</li>
-                                <li>Incluye base decorativa</li>
-                                <li>Edición limitada</li>
-                                <li>Empaque premium con certificado de autenticidad</li>
-                            </ul>
-                        </div>
-                        <div class="modal-acciones">
-                            <button class="btn-comprar">COMPRAR AHORA</button>
-                            <button class="btn-carrito">AGREGAR AL CARRITO</button>
-                        </div>
+        <!-- Inputs de filtro ocultos para CSS -->
+        <input type="radio" id="filtro-todos" name="categoria" checked style="display: none;">
+        <input type="radio" id="filtro-figuras" name="categoria" style="display: none;">
+        <input type="radio" id="filtro-ropa" name="categoria" style="display: none;">
+        <input type="radio" id="filtro-manga" name="categoria" style="display: none;">
+        <input type="radio" id="filtro-coleccionables" name="categoria" style="display: none;">
+
+        <div class="cuadricula-productos">
+            <!-- Figuras -->
+            {% for i in furm %}
+            <div class="tarjeta-producto ">
+                <div class="contenedor-imagen-producto">
+                    <img src="{{i.Imagen.url}}" alt="Figura Yuji Itadori" class="imagen-producto">
+                </div>
+                <div class="informacion-producto">
+                    <h3 class="nombre-producto">{{i.Nombre}}</h3>
+                    <div class="precio-producto">Precio:$ {{i.Precio}}</div>
+                    <div class="stock-producto stock-alto">Stock disponible: {{i.Stock}} unidades</div>
+                    <p class="descripcion-producto">
+                        {{i.Desc}}
+                    </p>
+                    <a href="" class="boton-ver-mas">Ver más detalles</a>
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="tarjeta-producto">
+                <div class="contenedor-imagen-producto">
+                    <img src="/placeholder.svg?height=200&width=300" alt="Figura Nobara Kugisaki"
+                        class="imagen-producto">
+                </div>
+                <div class="informacion-producto">
+                    <h3 class="nombre-producto">Figura Nobara Kugisaki</h3>
+                    <div class="precio-producto">$87.99</div>
+                    <div class="stock-producto stock-bajo">Stock: 0 unidades</div>
+                    <p class="descripcion-producto">
+                        Figura de Nobara con martillo y clavos malditos. Pose dinámica
+                        con efectos de técnica de muñeco vudú y expresión determinada.
+                    </p>
+                    <a href="detalle-producto.html?id=4" class="boton-ver-mas">Ver más detalles</a>
+                    <div class="alerta-stock sin-stock">
+                        <span class="icono-alerta"><img src="../static/img/cross.png" alt=""></span>
+                        <span class="texto-alerta sin-stock-texto">Producto agotado</span>
                     </div>
                 </div>
             </div>
+
         </div>
-        
+
     </main>
     {% endblock %}
 </body>
