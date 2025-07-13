@@ -12,26 +12,24 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    /* min-height: 100vh; */
+.contenidoind {
     padding: 20px;
 }
 
 /* Encabezado */
-.encabezado {
+.encabezado1 {
     text-align: center;
     margin-bottom: 40px;
     padding: 10px;
     background: linear-gradient(135deg, var(--var-azul-oscuro) 0%, var(--var-azul-medio) 50%, var(--var-azul) 100%);
     border-radius: 25px;
     border: 3px solid var(--var-claro);
-    box-shadow: 0 20px 60px rgba(10, 15, 26, 0.4);
+    box-shadow: 0 10px 15px rgba(10, 15, 26, 0.4);
     position: relative;
     overflow: hidden;
 }
 
-.encabezado::before {
+.encabezado1::before {
     content: '';
     position: absolute;
     top: 0;
@@ -100,7 +98,7 @@ body {
 .input-busqueda {
     width: 100%;
     padding: 15px 50px 15px 20px;
-    font-size: 1.1rem;
+    font-size: 17px;
     border: 2px solid var(--var-azul-medio);
     border-radius: 12px;
     background: linear-gradient(135deg, white 0%, #414871 100%);
@@ -142,10 +140,12 @@ body {
     gap: 10px;
     justify-content: center;
     align-items: center;
+
 }
 
 .opcion-filtro {
     position: relative;
+
 }
 
 .opcion-filtro input[type="radio"] {
@@ -163,6 +163,7 @@ body {
     transition: all 0.3s ease;
     font-weight: 500;
     font-size: 17px;
+
 }
 
 .etiqueta-filtro:hover {
@@ -461,6 +462,7 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+    
     .cuadricula-productos {
         grid-template-columns: 1fr;
     }
@@ -479,7 +481,7 @@ body {
     }
 
     .filtros-categoria {
-        flex-direction: column;
+        flex-direction: initial;
         gap: 8px;
     }
 }
