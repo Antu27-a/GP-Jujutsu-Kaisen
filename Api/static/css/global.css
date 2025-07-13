@@ -131,13 +131,14 @@ body {
     gap: 20px;
     align-items: center;
 }
+
 /* .... */
 .nav-link {
     color: #000000;
     text-decoration: none;
     font-weight: 600;
     font-size: 20px;
-    padding: 10px 16px;
+    padding: 16px 16px;
     border-radius: 6px;
     transition: all 0.3s ease;
     position: relative;
@@ -161,7 +162,7 @@ body {
 .nav-link:hover {
     color: var(--var-claro);
     background: rgba(87, 117, 250, 0.144);
-    
+
 }
 
 .nav-link:hover::after {
@@ -173,11 +174,11 @@ body {
 }
 
 /* Estados de autenticación */
-.login-link{
+.login-link {
     background: linear-gradient(135deg, var(--var-azul-medio), var(--var-claro));
     color: rgb(8, 12, 255);
     cursor: pointer;
-    
+    transition: all 0.3s ease;
 }
 
 .login-link:hover {
@@ -187,14 +188,24 @@ body {
 
 .logout-link {
     background: #0a0f1a;
-    color: white ;
-    display: none;
+    color: white;
+    display: flex;
  
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
 }
 
 .logout-link:hover {
     background: black;
     transform: translateY(-2px);
+}
+
+/* Asegurar que los iconos dentro de los enlaces se vean bien */
+.login-link .icon,
+.logout-link .icon {
+    width: 20px;
+    height: 20px;
 }
 
 /* Responsive Design */

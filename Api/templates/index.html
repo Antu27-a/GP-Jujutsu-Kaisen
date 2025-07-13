@@ -62,16 +62,16 @@
                     <img class="icon" src="{% static 'img/icon-menu/administrador.png' %}" alt="">
                     administrar
                 </a>
-
                 <!-- Enlaces de autenticación -->
                 {% if user.is_authenticated %}
                 <a href="" class="nav-link logout-link">
+                    <img class="icon" src="{% static 'img/icon-menu/cerrar-sesion.png' %}" alt="">
                     Cerrar sesión
                 </a>
                 {% else %}
-                <a href="" class="nav-link login-link"></a>
-                <img class="icon" src="{% static 'img/icon-menu/iniciar-sesion.png' %}" alt="">
-                Iniciar sesión
+                <a href="" class="nav-link login-link">
+                    <img class="icon" src="{% static 'img/icon-menu/iniciar-sesion.png' %}" alt="">
+                    Iniciar sesión
                 </a>
                 {% endif %}
             </nav>
@@ -116,8 +116,7 @@
                             </div>
                         </div>
                         <div class="carousel-item imagen-con-efecto">
-                            <img src="../static/img/dos.jpg" class="d-block w-100"
-                                alt="Imagen Paisaje 3">
+                            <img src="../static/img/dos.jpg" class="d-block w-100" alt="Imagen Paisaje 3">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Producto3</h5>
                                 <p>Descripcion</p>
